@@ -26,7 +26,7 @@ class CheckLogin
            }
         }
         else{
-            return redirect('login');
+            return redirect('user');
         }
         echo "this is checklog middleware";  
         

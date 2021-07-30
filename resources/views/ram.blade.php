@@ -57,6 +57,9 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html"><span style="font-size: 20px;font-weight: 400;color: white;  ">Online Test</span></a>
+      </li>
         
       <li class="nav-item">
           <a class="nav-link" href="{{ route('register') }}"><span style="font-size: 20px;font-weight: 400;color: white;  ">Register</span></a>

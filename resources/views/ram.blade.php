@@ -59,11 +59,11 @@
       </li>
         
       <li class="nav-item">
-          <a class="nav-link" href="register.html"><span style="font-size: 20px;font-weight: 400;color: white;  ">Register</span></a>
+          <a class="nav-link" href="{{ route('register') }}"><span style="font-size: 20px;font-weight: 400;color: white;  ">Register</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="login.html"><span style="font-size: 20px;font-weight: 400;color: white;"> Login</span></a>
-      </li>    
+          <a class="nav-link" href="{{ route('login') }}"><span style="font-size: 20px;font-weight: 400;color: white;"> Login</span></a>
+        </li>    
     </ul>
   </div>  
     </div>

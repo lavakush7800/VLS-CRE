@@ -21,7 +21,7 @@ class BookController extends Controller
         return view('book',$data);
     }
 
-    public function storeBook(Request $request){
+    public function storeBook(storeBook $request){
         try{
             $data = $request->all();
             $fname = $request->image->store('/public');
@@ -66,7 +66,7 @@ class BookController extends Controller
 			return redirect('book_show')->withErrors('Data Not Found');
         }
     }
-    public function update(Request $request){
+    public function update(storeBook $request){
         try{ 
             $data = $request->all();
             $fname = $request->image->store('/public');

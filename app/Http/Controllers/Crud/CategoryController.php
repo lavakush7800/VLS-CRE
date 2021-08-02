@@ -9,7 +9,7 @@ use App\Http\Requests\BookCategory;
 
 class CategoryController extends Controller
 {
-    public function index(Request $request){
+    public function index(BookCategory $request){
         try{
             $editdata = [];
             if(isset($request->edit)){
@@ -48,7 +48,7 @@ class CategoryController extends Controller
             return redirect('category')->withErrors('Data Not Found'); 
         }
     }
-       public function update(Request $request){
+       public function update(BookCategory $request){
         try{ 
             $data = $request->all();
             $result= Category::update($data);

@@ -9,7 +9,7 @@ use App\Http\Requests\BookAuthor;
 
 class AuthorController extends Controller
 {
-    public function index(Request $request){
+    public function index(BookAuthor $request){
         try{
             $editdata = [];
         if(isset($request->edit)){
@@ -48,7 +48,7 @@ class AuthorController extends Controller
             return redirect('author')->withErrors('Data Not Found'); 
         }
     }
-    public function update(Request $request){
+    public function update(BookAuthor $request){
         try{ 
             $data = $request->all();
             $result= Author::update($data);

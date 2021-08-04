@@ -9,7 +9,7 @@ use App\Http\Requests\BookPublisher;
 
 class PublisherController extends Controller
 {
-    public function index(Request $request){
+    public function index(BookPublisher $request){
         try{
             $editdata = [];
 
@@ -51,7 +51,7 @@ class PublisherController extends Controller
             return redirect('publisher')->withErrors('Data Not Found'); 
         }
     }
-       public function update(Request $request){
+       public function update(BookPublisher $request){
         try{ 
             $data = $request->all();
           

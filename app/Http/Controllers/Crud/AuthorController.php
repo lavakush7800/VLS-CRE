@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Crud;
 use App\Lib\Crud\Author;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\BookAuthor;
+use DataTables;
 
 class AuthorController extends Controller
 {
-    public function index(BookAuthor $request){
+    public function index(Request $request){
         try{
             $editdata = [];
         if(isset($request->edit)){
@@ -31,13 +31,23 @@ class AuthorController extends Controller
             return redirect('author')->withErrors('Unable to save');
         }
     }
-    public function get(){
-        try{
-            $data = Author::getAll();
-            return view('authorshow',['authordata'=>$data]);
-        }catch(\Exception $e){
-            return redirect('author')->withErrors('Data Not Found'); 
+    public function get(Request $request){
+        if ($request->ajax()) {
+            dd($request);
+            $data = Author::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+   
+                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+     
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
         }
+      
+        return view('author');
     }
     public function edit(int $id){
         try{
@@ -48,7 +58,7 @@ class AuthorController extends Controller
             return redirect('author')->withErrors('Data Not Found'); 
         }
     }
-    public function update(BookAuthor $request){
+    public function update(Request $request){
         try{ 
             $data = $request->all();
             $result= Author::update($data);

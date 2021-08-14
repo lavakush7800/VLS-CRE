@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Crud;
 use App\Lib\Crud\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\BookCategory;
+
 
 class CategoryController extends Controller
 {
-    public function index(BookCategory $request){
+    public function index(Request $request){
         try{
             $editdata = [];
             if(isset($request->edit)){
@@ -48,7 +48,7 @@ class CategoryController extends Controller
             return redirect('category')->withErrors('Data Not Found'); 
         }
     }
-       public function update(BookCategory $request){
+       public function update(Request $request){
         try{ 
             $data = $request->all();
             $result= Category::update($data);

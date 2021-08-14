@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Crud;
 use App\Lib\Crud\Publisher;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\BookPublisher;
 
 class PublisherController extends Controller
 {
-    public function index(BookPublisher $request){
+    public function index(Request $request){
         try{
             $editdata = [];
 
@@ -51,7 +50,7 @@ class PublisherController extends Controller
             return redirect('publisher')->withErrors('Data Not Found'); 
         }
     }
-       public function update(BookPublisher $request){
+       public function update(Request $request){
         try{ 
             $data = $request->all();
           

@@ -66,5 +66,3 @@ Route::get('/remove/book/{id}','Crud\CartController@removeCart');
 Route::post('/cart/update','Crud\CartController@update');
 
 
-
-Route::view('ram','ram');
